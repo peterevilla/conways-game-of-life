@@ -1,11 +1,11 @@
 import React from 'react'
 
-function cell() {
+function Cell() {
     return (
-        <div>
+        <div className="cell">
             
         </div>
     )
 }
 
-export default cell;
+export default Cell;
