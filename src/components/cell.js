@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Cell() {
+function Cell({cell}) {
+    console.log(cell)
     return (
         <div className="cell">
-            
         </div>
     )
 }
