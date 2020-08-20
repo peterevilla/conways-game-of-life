@@ -1,9 +1,11 @@
 import React from 'react'
 
-function Cell({cell}) {
-    console.log(cell)
+function Cell({cell, cordinates, handleToggle}) {
+    
     return (
-        <div className="cell">
+        <div className={cell === 1 ? "alive" : "dead"}
+        onClick={ () => handleToggle(cordinates)}
+        >
         </div>
     )
 }

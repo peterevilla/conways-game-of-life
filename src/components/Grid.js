@@ -1,28 +1,34 @@
-import React, { useState } from 'react'
-import Cell from './Cell'
-import {buildBoard} from './buildBoard'
+import React from "react";
+import Cell from "./Cell";
+import { connect } from "react-redux";
+import { onToggle } from "../actions/onToggle";
 
-function Grid() {
-
-const [matrix, setMatrix] = useState(buildBoard(40, 40, false))
-console.log(matrix)
-
-    return (
-        <div className="grid">
-            <table>
-             
-            {Object.entries(matrix).map(([key, value]) => (
-                <tr key={key}>
-                {value.map((cell, j) => (
-                    <Cell key={`${key}-${j}`} cell={cell} />
-                ))}
-                </tr>
-            ))
-            }
-         
-        </table> 
-        </div>
-    )
+function Grid({ board, onToggle }) {
+ 
+  return (
+    <div className="grid">
+      <table>
+        {Object.entries(board).map(([key, value]) => (
+          <tr key={key}>
+            {value.map((cell, j) => (
+              <Cell
+                key={`${key}-${j}`}
+                cell={cell}
+                cordinates={{ x: parseInt(key), y: j }}
+                handleToggle={onToggle}
+              />
+            ))}
+          </tr>
+        ))}
+      </table>
+    </div>
+  );
 }
 
-export default Grid;
+const mapStateToProps = (state) => {
+  return {
+    board: state.board,
+  };
+};
+
+export default connect(mapStateToProps, { onToggle })(Grid);
