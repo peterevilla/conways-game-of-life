@@ -51,11 +51,19 @@ h1 {
   flex-flow: column;
 }
 
-.cell {
+.alive {
+  border: 1px solid gray;
+  height: 0.8rem;
+  width: 0.8rem;
+  background-color: #282c34;
+}
+
+.dead {
   border: 1px solid gray;
   height: 0.8rem;
   width: 0.8rem;
 }
+
 
 .grid {
   display: flex;

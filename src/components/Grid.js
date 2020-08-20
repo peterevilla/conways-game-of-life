@@ -1,26 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Cell from './Cell'
 import {buildBoard} from './buildBoard'
 
 function Grid() {
 
-const [matrix, setMatrix] = useState(buildBoard(40, 40, false))
-console.log(matrix)
+const [matrix, setMatrix] = useState(buildBoard(40, 40))
+
+const onToggle = (coord) => {
+    let cell = matrix
+    cell[coord.x][coord.y] = 1
+    setMatrix(cell)
+    console.log(matrix)
+}
+
+useEffect(() => {
+
+},[matrix])
 
     return (
         <div className="grid">
-            <table>
+        
              
             {Object.entries(matrix).map(([key, value]) => (
-                <tr key={key}>
+                < div key={key}>
                 {value.map((cell, j) => (
-                    <Cell key={`${key}-${j}`} cell={cell} />
+                    <Cell key={`${key}-${j}`} cell={cell} coordinades={{ x: parseInt(key), y: j}} onToggle={onToggle} />
                 ))}
-                </tr>
+                </div>
             ))
             }
          
-        </table> 
         </div>
     )
 }
