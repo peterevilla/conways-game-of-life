@@ -60,11 +60,20 @@ h1 {
 }
 
 .dead {
+<<<<<<< HEAD
   border: 1px solid lightgray;
   height: 0.5rem;
   width: 0.5rem;
   border-width: thin;
+=======
+  border: 1px solid gray;
+  height: 0.8rem;
+  width: 0.8rem;
+  background-color: whitesmoke;
+>>>>>>> ccbe00661893ab809b81823b29e3e5506facb17b
 }
+
+
 
 .grid {
   display: flex;
@@ -73,4 +82,18 @@ h1 {
 
 table {
   display: flex;
+}
+
+
+.control {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+
+  margin: 1rem;
+  border: 1px solid whitesmoke;
+  background-color: lightgray;
+
 }
