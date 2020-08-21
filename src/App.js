@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Grid from './components/Grid'
+import ControlBoard from './components/ControlBoard'
 
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
       <div className="dash">
         <Grid/>
       </div>
-
+      <ControlBoard/>
     </div>
   );
 

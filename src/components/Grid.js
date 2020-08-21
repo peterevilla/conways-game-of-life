@@ -1,37 +1,34 @@
-import React, { useState, useEffect } from 'react'
-import Cell from './Cell'
-import {buildBoard} from './buildBoard'
+import React from "react";
+import Cell from "./Cell";
+import { connect } from "react-redux";
+import { onToggle } from "../actions/onToggle";
 
-function Grid() {
-
-const [matrix, setMatrix] = useState(buildBoard(40, 40))
-
-const onToggle = (coord) => {
-    let cell = matrix
-    cell[coord.x][coord.y] = 1
-    setMatrix(cell)
-    console.log(matrix)
+function Grid({ board, onToggle }) {
+ 
+  return (
+    <div className="grid">
+      <table>
+        {Object.entries(board).map(([key, value]) => (
+          <tr key={key}>
+            {value.map((cell, j) => (
+              <Cell
+                key={`${key}-${j}`}
+                cell={cell}
+                cordinates={{ x: parseInt(key), y: j }}
+                handleToggle={onToggle}
+              />
+            ))}
+          </tr>
+        ))}
+      </table>
+    </div>
+  );
 }
 
-useEffect(() => {
+const mapStateToProps = (state) => {
+  return {
+    board: state.board,
+  };
+};
 
-},[matrix])
-
-    return (
-        <div className="grid">
-        
-             
-            {Object.entries(matrix).map(([key, value]) => (
-                < div key={key}>
-                {value.map((cell, j) => (
-                    <Cell key={`${key}-${j}`} cell={cell} coordinades={{ x: parseInt(key), y: j}} onToggle={onToggle} />
-                ))}
-                </div>
-            ))
-            }
-         
-        </div>
-    )
-}
-
-export default Grid;
+export default connect(mapStateToProps, { onToggle })(Grid);
