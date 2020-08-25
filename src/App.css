@@ -81,10 +81,32 @@ table {
   justify-content: center;
 }
 
-button {
+
+
+.play {
+
+  margin: 1rem;
+  border: 1px solid whitesmoke;
+  background-color: lightgray;
+  border-color: lightgreen;
+
+}
+
+.random {
 
   margin: 1rem;
   border: 1px solid whitesmoke;
   background-color: lightgray;
 
 }
+
+.stopped {
+
+  margin: 1rem;
+  border: 1px solid whitesmoke;
+  background-color: lightgray;
+  border-color: red;
+
+}
+
+button:focus {outline:0;}

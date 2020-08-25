@@ -1,71 +1,57 @@
 
 export const PLAY = "PLAY";
 export const nextGen = (currentBoard) => {
-    let mirrorBoard = {...currentBoard}
-    console.log(mirrorBoard)
+
     let boardHeight = Object.keys(currentBoard).length;
     let boardWidth = currentBoard[0].length;
-    for (var j= 1; j < boardHeight - 1; j++) { //iterate through rows
-        for (var k = 1; k < boardWidth - 1; k++) { //iterate throught columns
-    
-            let sumOfCells = 0
-            sumOfCells += currentBoard[j - 1][k - 1]; //top left
-            sumOfCells += currentBoard[j - 1][k]; //top center
-            sumOfCells += currentBoard[j - 1][k + 1]; //top right
-            sumOfCells += currentBoard[j][k - 1]; //middle left
-            sumOfCells += currentBoard[j][k + 1]; //middle right
-            sumOfCells += currentBoard[j + 1][k - 1]; //bottom left
-            sumOfCells += currentBoard[j + 1][k]; //bottom center
-            sumOfCells += currentBoard[j + 1][k + 1]; //bottom right
-    
-            if (mirrorBoard[j][k] === 0) {
-
-                switch (sumOfCells) {
-                
-                    case 3:
-                        mirrorBoard[j][k] = 1  // Cell become alive
-                        break;
-                    default:
-                        mirrorBoard[j][k] = 0 // Cell remains dead
-                }
-            } else if (mirrorBoard[j][k] === 1) {
-                
-                switch (sumOfCells) {
-
-                    case 0:
-                    case 1:
-                        mirrorBoard[j][k] = 0 //Die , underpolpulation 
-                        break;
-                    case 2:
-                    case 3:
-                        mirrorBoard[j][k] = 1 // Keep Living
-                        break;
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                        mirrorBoard[j][k] = 0 // Overpopulation
-                        break;
-                    default:
-                        mirrorBoard[j][k] = 0
-                }
-
-            }
-
-    
-    
+  
+    const activeNeighbours = (x, y) => {
+      const topRow = x - 1 < 0 ? boardHeight - 1 : x - 1;
+      const bottomRow = x + 1 === boardHeight ? 0 : x + 1;
+      const leftColumn = y - 1 < 0 ? boardWidth - 1 : y - 1;
+      const rightColumn = y + 1 === boardHeight ? 0 : y + 1;
+  
+      let neighbours =
+        currentBoard[topRow][leftColumn] +
+        currentBoard[topRow][y] +
+        currentBoard[topRow][rightColumn] +
+        currentBoard[x][leftColumn] +
+        currentBoard[x][rightColumn] +
+        currentBoard[bottomRow][leftColumn] +
+        currentBoard[bottomRow][y] +
+        currentBoard[bottomRow][rightColumn];
+      return neighbours;
+    };
+  
+    let nextBoard = {};
+    for (let i = 0; i < boardHeight; i++) {
+      let row = [];
+      for (let j = 0; j < boardWidth; j++) {
+        let isActive = currentBoard[i][j];
+        let neighbours = activeNeighbours(i, j);
+        if (isActive === 1) {
+          if (neighbours < 2) {
+            row.push(0);
+          } else if (neighbours > 3) {
+            row.push(0);
+          } else {
+            row.push(1);
+          }
         }
+        if (isActive === 0) {
+          if (neighbours === 3) {
+            row.push(1);
+          } else {
+            row.push(0);
+          }
         }
-        for (var i = 0; i < boardHeight -1; i++) { //iterate through rows
-            for (var l = 0; l < boardWidth -1; l++) { //iterate through columns
-            currentBoard[i][l] = mirrorBoard[i][l];
-            }
-            }
+      }
+      nextBoard[i] = row;
+    }
 
             return {
                 type: PLAY,
-                payload: currentBoard,
+                payload: nextBoard,
             }
 }
 
