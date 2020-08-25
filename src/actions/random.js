@@ -1,8 +1,7 @@
 export const RANDOM = "RANDOM";
-export const random = (isRandom) => {
+export const random = () => {
 
     return {
         type: RANDOM,
-        payload: isRandom,
     }
 }
