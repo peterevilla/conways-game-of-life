@@ -89,6 +89,8 @@ table {
   border: 1px solid whitesmoke;
   background-color: lightgray;
   border-color: lightgreen;
+  padding: 1%;
+  width: 80px;
 
 }
 
@@ -97,6 +99,8 @@ table {
   margin: 1rem;
   border: 1px solid whitesmoke;
   background-color: lightgray;
+  padding: 1%;
+  width: 80px;
 
 }
 
@@ -106,6 +110,8 @@ table {
   border: 1px solid whitesmoke;
   background-color: lightgray;
   border-color: red;
+  padding: 1%;
+  width: 80px;
 
 }
 

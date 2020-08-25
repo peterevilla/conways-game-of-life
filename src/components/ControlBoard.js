@@ -26,7 +26,8 @@ const ControlBoard = ({board, nextGen, random}) => {
     return (
         <div className='control'>
             <button className="random" onClick={() => random(true)}>Random</button>
-            <button className={isActive ? 'play' : 'stopped'} onClick={toggle}>Play/Stop</button>
+            { isActive ? (<button className={isActive ? 'play' : 'stopped'} onClick={toggle}>Stop</button>)
+            : (<button className={isActive ? 'play' : 'stopped'} onClick={toggle}>Play</button>)}
         </div>
     )
 }
