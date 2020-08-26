@@ -7,7 +7,18 @@ import { clear } from "../actions/clear";
 const ControlBoard = ({ board, nextGen, random, clear }) => {
   const [isActive, setIsActive] = useState(false);
   const [speed, setSpeed] = useState(500);
+  const [genCount, setGenCount] = useState(0)
 
+  const onClear = () => {
+    setSpeed(500)
+    setGenCount(0)
+    clear()
+  }
+
+  const onStep = () => {
+    setGenCount(genCount + 1)
+    nextGen(board)
+  }
   const speedHandler = (s) => {
     if (s === "up") {
       if (speed > 50) {
@@ -31,6 +42,7 @@ const ControlBoard = ({ board, nextGen, random, clear }) => {
     let interval = null;
     if (isActive) {
       interval = setInterval(() => {
+        setGenCount(genCount+ 1)
         nextGen(board);
       }, speed);
     } else if (!isActive) {
@@ -59,9 +71,13 @@ const ControlBoard = ({ board, nextGen, random, clear }) => {
       <button className="random" onClick={() => speedHandler("up")}>
         +
       </button>
-      <button className="random" onClick={() => clear()}>
+      <button className="random" onClick={() => onStep()}>
+        step
+      </button>
+      <button className="random" onClick={() => onClear()}>
         Clear
       </button>
+      <p className='gen'>gen: {genCount}</p>
     </div>
   );
 };

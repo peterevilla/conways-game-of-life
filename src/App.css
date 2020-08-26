@@ -22,10 +22,6 @@ p {
   font-size: 1rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media only screen and (max-width: 600px) {
 
@@ -39,31 +35,6 @@ p {
     display: none;
   } */
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 
 /* cell */
 
@@ -139,6 +110,11 @@ table {
   width: 80px;
   border-radius: 10%;
   box-shadow: 0 3px #999;
+}
+
+.gen {
+  font-size: 0.8rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 button {
