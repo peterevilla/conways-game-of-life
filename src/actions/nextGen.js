@@ -5,7 +5,7 @@ export const nextGen = (currentBoard) => {
     let boardHeight = Object.keys(currentBoard).length;
     let boardWidth = currentBoard[0].length;
   
-    const activeNeighbours = (x, y) => {
+    const liveNeighbours = (x, y) => {
       const topRow = x - 1 < 0 ? boardHeight - 1 : x - 1;
       const bottomRow = x + 1 === boardHeight ? 0 : x + 1;
       const leftColumn = y - 1 < 0 ? boardWidth - 1 : y - 1;
@@ -28,7 +28,7 @@ export const nextGen = (currentBoard) => {
       let row = [];
       for (let j = 0; j < boardWidth; j++) {
         let isActive = currentBoard[i][j];
-        let neighbours = activeNeighbours(i, j);
+        let neighbours = liveNeighbours(i, j);
         if (isActive === 1) {
           if (neighbours < 2) {
             row.push(0);

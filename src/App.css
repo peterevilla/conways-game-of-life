@@ -1,18 +1,19 @@
 .App {
   display: flex;
   font-family: 'Press Start 2P', cursive;
-  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .conway {
-  padding-right: 30%;
-  padding-left: 30%;
+  padding-right: 5%;
+  padding-left: 5%;
   
 }
 
 h1 {
   color: grey;
   font-family: 'Press Start 2P', cursive;
+  text-align: center;
 }
 
 p {
@@ -21,6 +22,19 @@ p {
   font-size: 1rem;
 }
 
+
+@media only screen and (max-width: 600px) {
+
+  .App {
+    display: flex;
+    font-family: 'Press Start 2P', cursive;
+    justify-content: center;
+    flex-flow: column;
+  }
+  /* .rules {
+    display: none;
+  } */
+}
 
 /* cell */
 
@@ -58,6 +72,7 @@ table {
   display: flex;
   justify-content: center;
   height: 60px;
+  margin-left: 10%;
 }
 
 
@@ -96,6 +111,12 @@ table {
   width: 80px;
   border-radius: 10%;
   box-shadow: 0 3px #999;
+}
+
+.gen {
+  font-size: 0.8rem;
+  width: 100px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 button {
