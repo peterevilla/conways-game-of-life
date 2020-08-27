@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Grid from './components/Grid'
+import ControlBoard from './components/ControlBoard'
+import Rules from './components/Rules'
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='conway'>
+      <h1>Conway's Game of Life</h1>
+      <div className="App">
+      
+      <div className="dash">
+        <Grid/>
+        <ControlBoard/>
+      </div>
+      <div className='rules'>
+      <Rules/>
+      </div>
     </div>
+    </div>
+    
   );
+
 }
 
 export default App;

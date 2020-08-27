@@ -1,38 +1,137 @@
 .App {
+  display: flex;
+  font-family: 'Press Start 2P', cursive;
+  justify-content: center;
+}
+
+.conway {
+  padding-right: 5%;
+  padding-left: 5%;
+  
+}
+
+h1 {
+  color: grey;
+  font-family: 'Press Start 2P', cursive;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+p {
+  text-align: justify;
+  font-weight: lighter;
+  font-size: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+@media only screen and (max-width: 600px) {
+
+  .App {
+    display: flex;
+    font-family: 'Press Start 2P', cursive;
+    justify-content: center;
+    flex-flow: column;
   }
+  /* .rules {
+    display: none;
+  } */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* cell */
+
+.dash {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-flow: column;
+}
+
+.alive {
+  border: 1px solid lightgray;
+  height: 0.5rem;
+  width: 0.5rem;
+  background-color: indigo;
+  border-width: thin;
+}
+
+.dead {
+  border: 1px solid lightgray;
+  height: 0.5rem;
+  width: 0.5rem;
+  border-width: thin;
+}
+
+.grid {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+table {
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.control {
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  margin-left: 10%;
+}
+
+
+
+.play {
+
+  margin: 1rem;
+  border: 1px solid whitesmoke;
+  background-color: lightgray;
+  border-color: red;
+  padding: 0.5%;
+  width: 80px;
+  border-radius: 10%;
+  font-family: 'Press Start 2P', cursive;
+  box-shadow: 0 3px #999;
+}
+
+.random {
+  text-align: center;
+  margin: 1rem;
+  border: 1px solid whitesmoke;
+  background-color: lightgray;
+  padding: 0.5%;
+  width: 80px;
+  border-radius: 10%;
+  box-shadow: 0 3px #999;
+}
+
+.stopped {
+
+  margin: 1rem;
+  border: 1px solid whitesmoke;
+  background-color: lightgray;
+  border-color: lightgreen;
+  padding: 0.5%;
+  width: 80px;
+  border-radius: 10%;
+  box-shadow: 0 3px #999;
+}
+
+.gen {
+  font-size: 0.8rem;
+  width: 100px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.5rem;
+}
+button:focus {outline:0;}
+button:hover {background-color: lightgreen}
+
+button:active {
+  box-shadow: 0 3px #666;
+  transform: translateY(2px);
+}
+
+.rules {
+  width: 900px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
